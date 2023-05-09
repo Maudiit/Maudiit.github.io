@@ -1,0 +1,76 @@
+/*---Style aside horizontal---*/
+aside{
+    background-color: #F2D7D9;
+    margin: 10px 0px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/*---Style sous-menu---*/
+.sous_menu {
+    border-radius: 4px 4px 0px 0px; /*bordure arrondie*/
+    width: 960px;
+}
+
+.sous_menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.3rem;
+    padding: 0rem;
+}
+
+.sous_menu li{
+    list-style: none;
+}
+
+.sous_menu a{
+    text-decoration: none;
+    color: #000;
+    padding: 0.3rem;
+    margin: 10px 10px;
+} 
+
+/*Effet de survol*/
+.sous_menu a:hover{
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 15px;
+}
+/*---Fin style sous-menu--- */
+
+/*Style article Via Ferrata*/
+article{
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 530px;
+    border: 2px solid #0E5E6F;
+    border-radius: 20px;
+    border-style: dotted;
+    margin-bottom: 10px;
+}
+
+article h2{
+    text-align: center;
+    margin-bottom: 0px;
+    color: #3A8891;
+    text-decoration: overline;
+}
+
+article p{
+    text-align: justify;
+    font-size: 15px;
+    margin: 15px;
+}
+
+figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: -545px;
+}
+
+img{
+    border-radius: 20px;
+}
