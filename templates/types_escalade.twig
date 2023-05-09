@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+
+{% block link %}
+    <link rel="stylesheet" media="screen" href="css/types_escalade.css">
+{% endblock link %}
+
+{% block title %}
+    <title>Types escalade</title>
+{% endblock title%}
+
+{% block menu_actif %}
+    <ul>
+        <li><a href="{{menu.header.types_esca.tiret1.href}}" class="actif"><img src="{{menu.header.types_esca.tiret1.in_a.src}}" alt="{{menu.header.a_propos.tiret1.in_a.alt}}"></a></li>
+        {% for tiret in menu.header.types_esca.liste1 %}
+            <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+        {% endfor %}
+        <li><a href="{{menu.header.types_esca.tiret4.href}}" class="actif">{{menu.header.types_esca.tiret4.in_a}}</a></li>
+        {% for tiret in menu.header.types_esca.liste2 %}
+        <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock menu_actif%}
+
+{% block main %}
+    <aside>
+        <nav class="sous_menu" role="navigation">
+            <ul>
+                {% for tiret in aside.aside_types_escalade %}
+                    <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </aside>
+   
+    {% for article in articles %}
+        <section id="{{article.id}}">
+            <article class="types_escalade" role="article">
+                <h2>{{article.nom}}</h2>
+                {% for explication in article.explication %}
+                    <p>{{explication}}</p>
+                {% endfor %}
+            </article>
+            <div>
+                <figure>
+                    <img src="{{article.image}}" alt="{{article.alt}}">
+                </figure>
+            </div>
+        </section>
+    {% endfor %}
+
+
+{% endblock main %}

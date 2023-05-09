@@ -1,0 +1,58 @@
+{% extends "base.twig" %} 
+
+{% block link %}
+    <link rel="stylesheet" media="screen" href="css/contact.css">
+{% endblock link %}
+
+{% block title %}
+    <title>Contact</title>
+{% endblock title%}
+
+{% block menu_actif %}
+    <ul>
+        <li><a href="{{menu.header.contact.tiret1.href}}" class="actif"><img src="{{menu.header.contact.tiret1.in_a.src}}" alt="{{menu.header.a_propos.tiret1.in_a.alt}}"></a></li>
+        {% for tiret in menu.header.contact.liste %}
+            <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+        {% endfor %}
+        <li><a href="{{menu.header.contact.tiret7.href}}" class="actif">{{menu.header.contact.tiret7.in_a}}</a></li>
+    </ul>
+{% endblock menu_actif %}
+
+{% block main %}
+    <div class="contact">
+        <section>
+            <article>
+                <h2>{{contact.titre}}</h2>
+                <p>{{contact.message}}</p>
+                <form method="get">
+                    {% for label in contact.form.contenu %}
+                        <div>
+                            <label for="{{label.for}}">{{label.btw_label}}</label>
+                            <input title="{{label.title}}" type="{{label.type}}" id="{{label.id}}" name="{{label.name}}" placeholder="{{label.placeholder}}" required>
+                        </div>
+                    {% endfor %}
+                    <div>
+                        <label for="{{contact.form.label3.for}}">{{contact.form.label3.btw_label}}</label>
+                        <select title="{{contact.form.select3.title3}}" name="{{contact.form.select3.name}}" id="{{contact.form.select3.id}}" required>
+                            <option value="" disabled selected hidden>{{contact.form.select3.pre_option}}</option>
+                            {% for option in contact.form.select3.options %}
+                                <option value="{{option.value}}">{{option.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="{{contact.form.label4.for}}">{{contact.form.label4.btw_label}}</label>
+                        <textarea id="{{contact.form.textarea.id}}" name="{{contact.form.textarea.message}}" placeholder="{{contact.form.textarea.placeholder}}" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit">{{contact.form.button}}</button>
+                    </div>                    
+                </form>
+            </article>
+        </section>
+    </div>
+
+    <aside>
+        <p>{{aside.contact.message}}</p>
+    </aside>
+{% endblock main %}

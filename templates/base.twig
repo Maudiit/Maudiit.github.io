@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/index.css">
+    {% block link %}
+    {% endblock link %}
+    {% block title %}
+    {% endblock title%}
+</head>
+<body>
+    <div class="wrap">
+        <header role="banner"><!-- Haut de page = header -->
+            <h1>{{menu.header.titre}}</h1>
+            
+            <nav class="menu" role="navigation"><!-- Menu -->
+                {% block menu_actif %}
+                {% endblock menu_actif %}
+            </nav>
+        </header>
+
+        <main>
+            {% block main %}
+            {% endblock main %}
+        </main>
+
+        <footer role="contentinfo"><!-- Bas de page = footer-->
+            <section>
+                <nav class="plan_site" role="navigation"><!-- plan du site -->
+                        <ul>
+                            {% for tiret in menu.footer.navigation %}
+                                <li><a href="{{tiret.href}}">{{tiret.btw_a}}</a></li>
+                            {% endfor %}
+                        </ul>
+                </nav>
+                <p>© 2023 Maudit</p>
+            </section>
+        </footer>
+    </div>  
+</body>
+</html>

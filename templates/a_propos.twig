@@ -1,0 +1,60 @@
+{% extends "base.twig" %}
+
+{% block link %}
+    <link rel="stylesheet" media="screen" href="css/a_propos.css">
+{% endblock link %}
+
+{% block title %}
+    <title>A propos</title>
+{% endblock title%}
+
+{% block menu_actif %}
+    <ul>
+        <li><a href="{{menu.header.a_propos.tiret1.href}}" class="actif"><img src="{{menu.header.a_propos.tiret1.in_a.src}}" alt="{{menu.header.a_propos.tiret1.in_a.alt}}"></a></li>
+        {% for tiret in menu.header.a_propos.liste %}
+            <li><a href="{{tiret.href}}" >{{tiret.in_a}}</a></li>
+        {% endfor %}
+        <li><a href="{{menu.header.a_propos.tiret6.href}}" class="actif">{{menu.header.a_propos.tiret6.in_a}}</a></li>
+        <li><a href="{{menu.header.a_propos.tiret7.href}}">{{menu.header.a_propos.tiret7.in_a}}</a></li>
+    </ul>
+{% endblock menu_actif %}
+
+{% block main %}
+    <aside ><!-- Sous-menu -->
+        <nav class="sous_menu" role="navigation">
+            <h3>Sous-menu</h3>
+            <ul>
+                {% for tiret in aside.aside_propos.liste %}
+                    <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <section>
+            <article>
+                <p>{{aside.aside_propos.paragraphe}}</p>
+            </article>
+        </section>    
+    </aside>
+
+    <section class="cgu">
+        <h2>{{a_propos.titre}}</h2>
+
+        {% for article in a_propos.articles%}
+            <article id="{{article.id}}">
+                <h3>{{article.titre}}</h3>
+                {% for explication in article.explication %}
+                    <p>{{explication}}</p>
+                {% endfor %}
+                <ul>
+                    {% for tiret in article.liste %}
+                        <li>{{tiret}}</li>
+                    {% endfor %}
+                </ul>
+                {% for explication2 in article.explication_part2 %}
+                    <p>{{explication2}}</p>
+                {% endfor %}
+            </article>
+        {% endfor %}
+    </section>
+{% endblock main %}

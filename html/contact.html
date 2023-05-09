@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="../css/index.css">
+    <link rel="stylesheet" media="screen" href="../css/contact.css">
+    <title>Contact</title>
+</head>
+<body>
+    <div class="wrap">
+        <header role="banner">
+            <h1>L'Escalade pour les nul.le.s ;)</h1>
+
+            <nav class="menu" role="navigation"> <!-- Menu -->
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="vocabulaire.html">Vocabulaire</a></li>
+                    <li><a href="types_escalade.html">Types d'escalade</a></li>
+                    <li><a href="materiels.html">Matériels</a></li>
+                    <li><a href="a_propos.html">A propos</a></li>
+                    <li><a href="contact.html" class="actif">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main role="main">
+            <div class="contact">
+                <section>
+                    <article>
+                        <h2>Des questions ?</h2>
+                        <p>Si vous avez des questions concernant le matériel, des faits divers, sur l'escalade, etc. Vous pouvez nous contacter via ce formulaire:</p>
+                        <form method="get">
+                            <div>
+                                <label for="nom_prenom">Votre nom & prénom</label>
+                                <input title="nom & prenom" type="text" id="nom_prenom" name="nom" placeholder="Schmit Paul" required>
+                            </div>
+                            <div>
+                                <label for="email">Votre e-mail</label>
+                                <input title="Votre email" type="email" id="email" name="email" placeholder="monadresse@mail.com" required>
+                            </div>
+                            <div>
+                                <label for="sujet_demande">Quel est le sujet de votre message ?</label>
+                                <select title="Sujet de la demande" name="sujet_demande" id="sujet_demande" required>
+                                    <option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
+                                    <option value="matériels">Matériels</option>
+                                    <option value="endroits_pratique">Endroit où pratiquer</option>
+                                    <option value="autre">Autre...</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message">Votre message</label>
+                                <textarea id="message" name="message" placeholder="Saisissez votre message...." required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit">Envoyer mon message</button>
+                            </div>                    
+                        </form>
+                    </article>
+                </section>
+            </div>
+
+            <aside>
+                <p>N'hésitez à nous contacter, on est gentil :)</p>
+            </aside>
+        
+        </main>
+        
+        <footer role="contentinfo">
+            <section>
+                <nav class="plan_site" role="navigation"><!-- plan du site -->
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="vocabulaire.html">Vocabulaire</a></li>
+                        <li><a href="types_escalade.html">Types d'escalade</a></li>
+                        <li><a href="materiels.html">Matériels</a></li>
+                        <li><a href="a_propos.html">A propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <p>© 2023 Maudit</p>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>

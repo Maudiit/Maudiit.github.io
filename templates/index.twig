@@ -1,0 +1,75 @@
+{% extends "base.twig" %} 
+
+{% block link %}
+    <link rel="stylesheet" media="screen" href="css/accueil.css">
+{% endblock link %}
+
+{% block title %}
+    <title>Page d'acceuil</title>
+{% endblock title%}
+
+{% block menu_actif %}
+    <ul>
+        <li><a href="{{menu.header.index.tiret1.href}}" class="actif"><img src="{{menu.header.index.tiret1.in_a.src}}" alt="{{menu.header.index.tiret1.in_a.alt}}"></a></li>
+        <li><a href="{{menu.header.index.tiret2.href}}" class="actif">{{menu.header.index.tiret2.in_a}}</a></li>
+        {% for tiret in menu.header.index.liste %}
+            <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+        {% endfor %}
+
+    </ul>
+{% endblock menu_actif %}
+
+{% block main %}
+    <aside ><!-- Sous-menu -->
+        <nav class="sous_menu" role="navigation">
+            <h3>Sous-menu</h3>
+            <ul>
+                {% for tiret in aside.aside_accueil.liste %}
+                    <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <section>
+            <article>
+                <h4>{{aside.aside_accueil.article.titre}}</h4>
+                {% for explication in aside.aside_accueil.article.explication %}    
+                    <p>{{explication}}</p>
+                {% endfor %}
+            </article>
+        </section>            
+    </aside>
+    
+    <div class="out_of_aside">
+        {% for sections in accueil.sections %}
+            <section id="{{sections.id}}"><!-- Partie 1: "Def" escalade -->
+                {% for article in sections.article %}
+                    <article>
+                        <h2>{{article.titre}}</h2>
+                        {% for explication in article.explication %} 
+                            <p>{{explication}}</p>
+                        {% endfor %}
+                        {% for special in article %} 
+                            <p>{{special.partbefore}} <a href="{{special.href}}">{{special.in_a}}</a>{{special.part_after}}</p>
+                        {% endfor %}
+                        <ul>
+                            {% for tiret in article.liste %}
+                                <li>{{tiret}}</li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <div class="tous_images">
+                            {% for images in article.images %}
+                                <div class="{{images.class}}">
+                                    <figure>
+                                        <img src="{{images.src}}" alt="{{images.alt}}">
+                                    </figure>    
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </article>
+                {% endfor %}
+            </section>
+        {% endfor %}
+    </div>
+{% endblock main %}

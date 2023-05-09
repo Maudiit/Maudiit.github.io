@@ -1,0 +1,56 @@
+{% extends "base.twig" %}
+
+{% block link %}
+    <link rel="stylesheet" media="screen" href="css/vocabulaire.css">
+{% endblock link %}
+
+{% block title %}
+    <title>Vocabulaire</title>
+{% endblock title%}
+
+{% block menu_actif %}
+    <ul>
+        <li><a href="{{menu.header.voca.tiret1.href}}" class="actif"><img src="{{menu.header.voca.tiret1.in_a.src}}" alt="{{menu.header.a_propos.tiret1.in_a.alt}}"></a></li>
+        {% for tiret in menu.header.voca.liste1 %}
+            <li><a href="{{tiret.href}}"> {{tiret.in_a}}</a></li>
+        {% endfor %}
+        <li><a href="{{menu.header.voca.tiret3.href}}" class="actif">{{menu.header.voca.tiret3.in_a}}</a></li>
+        {% for tiret in menu.header.voca.liste2 %}
+            <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+        {% endfor %}
+
+    </ul>
+{% endblock menu_actif %}
+
+{% block main %}
+    <aside>
+        {% for paragraphe in aside.aside_voca.paragraphe %}
+            <p>{{paragraphe}}</p>
+        {% endfor %}
+        <nav class="sous_menu" role="navigation">
+            <ul>
+                {% for tiret in aside.aside_voca.liste %}
+                    <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </aside>
+
+    {% for article in articles %}
+        <div>
+            <article class="voca">
+                <h2 id="{{article.id}}">{{article.titre}}</h2>
+                <p>{{article.genre}}</p>
+                {% for def in article.def %}
+                    <p>{{def}}</p>
+                {% endfor %}
+                <ul>
+                    {% for tiret in article.listes %}
+                        <li>{{tiret}}</li>
+                    {% endfor %}
+                </ul> 
+            </article>
+        </div>
+    {% endfor %}
+
+{% endblock %}

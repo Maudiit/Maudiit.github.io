@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+
+{% block link %}
+    <link rel="stylesheet" media="screen" href="css/materiels.css">
+{% endblock link %}
+
+{% block title %}
+    <title>Materiels</title>
+{% endblock title%}
+
+{% block menu_actif %}
+    <ul>
+        <li><a href="{{menu.header.materiels.tiret1.href}}" class="actif"><img src="{{menu.header.materiels.tiret1.in_a.src}}" alt="{{menu.header.a_propos.tiret1.in_a.alt}}"></a></li>
+        {% for tiret in menu.header.materiels.liste1%}
+            <li><a href="{{tiret.href}}" >{{tiret.in_a}}</a></li>
+        {% endfor %}
+        <li><a href="{{menu.header.materiels.tiret5.href}}" class="actif">{{menu.header.materiels.tiret5.in_a}}</a></li>
+        {% for tiret in menu.header.materiels.liste2 %}
+            <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock menu_actif%}
+
+{% block main %}
+    <aside>
+        {% for paragraphe in aside.aside_materiels.paragraphe %}
+            <p>{{paragraphe}}</p>
+        {% endfor %}
+        <nav class="sous_menu" role="navigation">
+            <ul>
+                {% for tiret in aside.aside_materiels.liste %}
+                    <li><a href="{{tiret.href}}">{{tiret.in_a}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </aside>
+
+    <div >
+        {% for article in articles %}
+            <section>
+                <article class="materiel">
+                    <h2 id="{{article.id}}">{{article.nom}}</h2>
+                    <p>{{article.genre}}</p>
+                    {% for explication in article.explication %}
+                        <p>{{explication}}</p>
+                    {% endfor %}
+                    <figure><img src="{{article.lien}}" alt="{{article.alt}}"></figure>
+                </article>
+            </section>
+        {% endfor %}
+    </div>
+{% endblock main %}
